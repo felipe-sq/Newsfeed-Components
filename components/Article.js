@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'A Programmer\'s Thanksgiving!',
+    date: 'Nov 27th, 2020',
+    firstParagraph: 'Donec nisl nisi, ullamcorper ac enim ac, viverra molestie quam. Proin efficitur aliquam felis, a mattis erat       mattis in. Morbi tincidunt lacus et nulla consequat, eget mollis libero semper. Ut quis felis ex. Phasellus blandit, turpis in volutpat accumsan, dolor neque vulputate sem, ac aliquam arcu neque vel orci. Aliquam in risus risus. Nam luctus vitae magna non tempor. Suspendisse rhoncus turpis eget dolor placerat, id lobortis sapien rutrum. Nunc sed aliquet ipsum.',
+    secondParagraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis dolor non odio maximus, et tempus arcu vulputate. Integer accumsan fermentum rutrum. Pellentesque in tortor ac libero tempus feugiat sit amet vel diam. Etiam mauris neque, lobortis id tellus at, tempus faucibus nulla. Nunc suscipit accumsan enim, at facilisis risus tempus vitae. Vestibulum porta fermentum nibh, ac venenatis lectus sodales at. Aliquam ut vehicula tortor. Duis pellentesque justo eget sollicitudin elementum. In tincidunt tincidunt mauris, a imperdiet dui tempor a. Etiam sit amet lacus finibus, hendrerit est dictum, porttitor diam. Nullam pellentesque enim eget metus tempus condimentum. Suspendisse in erat ornare, placerat urna a, condimentum tellus. Aenean ac commodo ex, et lacinia tellus. Quisque tincidunt tincidunt lacus, quis rutrum dui auctor id. Curabitur justo arcu, iaculis vestibulum ante vel, scelerisque aliquam dui.',
+    thirdParagraph: 'Aliquam dui libero, consectetur non porttitor at, mattis quis sem. Donec cursus ipsum eu lacus congue, non mollis orci aliquam. Duis sed condimentum lorem. Sed volutpat nisl id ante viverra ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam euismod interdum dapibus. Maecenas feugiat ante ut accumsan aliquet. Mauris congue sapien eu feugiat lobortis. Aenean gravida est aliquam est porta, scelerisque sagittis mauris porttitor. Nulla commodo diam egestas erat ornare, quis semper elit hendrerit. In convallis posuere libero, et pharetra lacus convallis tristique. Integer eget dolor auctor, placerat dolor ac, aliquet lorem. Morbi ut mauris et dolor venenatis maximus. Fusce fringilla eros luctus magna interdum euismod. Suspendisse potenti. Sed eu neque sit amet ex rutrum egestas sed sed nunc.'
   }
 ];
 
@@ -115,7 +122,7 @@ const data = [
   Refresh the page to see the new article.
 */
 
-const articleContainer = document.querySelector('div.article');
+const articleContainer = document.querySelector('div.articles');
 
 function articleMaker(data){
   const article = document.createElement('div');
@@ -153,3 +160,8 @@ function articleMaker(data){
 }
 
 // console.log(articleMaker(data[0]))
+data.forEach(e => {
+  const newArticle = articleMaker(e);
+  articleContainer.appendChild(newArticle);
+});
+
