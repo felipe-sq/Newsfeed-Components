@@ -43,21 +43,22 @@ function menuMaker(data) {
 
   menuDiv.classList.add('menu');
 
-  // The .forEach() method did not work in this particular instance
-  // as it was not able to pull the array elements by index.
+  // Fixed the issue with the .forEach() method not adding the array
+  // element by index. The code did not need 'data[e]', it just 
+  // needed to know to add 'e' as the textContent.
 
-  // data.forEach(e => {
-  //   const ulItem = document.createElement('li');
-  //   ulItem.textContent = data[e];
-  //   menuList.appendChild(ulItem);
-  //   return ulItem
-  // });
-
-  for(i = 0; i < data.length; i++){
+  data.forEach(e => {
     const ulItem = document.createElement('li');
-    ulItem.textContent = data[i];
+    ulItem.textContent = e;
     menuList.appendChild(ulItem);
-  }
+    return ulItem
+  });
+
+  // for(i = 0; i < data.length; i++){
+  //   const ulItem = document.createElement('li');
+  //   ulItem.textContent = data[i];
+  //   menuList.appendChild(ulItem);
+  // }
 
   // Manually typed up multiple <li> elements to test code and make
   // sure that I was creating them properly in the .forEach and 
