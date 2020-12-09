@@ -25,9 +25,64 @@ let menuItems = [
 
   Step 3: Still inside your function, select from the DOM the menu button (the element with a class of 'menu-button').
 
-  Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on div.menu (your div with a 'menu' class).
+  Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu-open' on div.menu (your div with a 'menu' class).
 
   Step 5: Don't forget to return your div.menu.
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+const menuHeader = document.querySelector('div.header');
+
+function menuMaker(data) {
+  // const menuArray = data;
+
+  const menuDiv = document.createElement('div');
+  const menuList = document.createElement('ul');
+
+  menuDiv.appendChild(menuList);
+
+  menuDiv.classList.add('menu');
+
+  // The .forEach() method did not work in this particular instance
+  // as it was not able to pull the array elements by index.
+
+  // data.forEach(e => {
+  //   const ulItem = document.createElement('li');
+  //   ulItem.textContent = data[e];
+  //   menuList.appendChild(ulItem);
+  //   return ulItem
+  // });
+
+  for(i = 0; i < data.length; i++){
+    const ulItem = document.createElement('li');
+    ulItem.textContent = data[i];
+    menuList.appendChild(ulItem);
+  }
+
+  // Manually typed up multiple <li> elements to test code and make
+  // sure that I was creating them properly in the .forEach and 
+  // for loop
+
+  // const ulItem1 = document.createElement('li');
+  // ulItem1.textContent = data[0];
+  // menuList.appendChild(ulItem1);
+  // 
+  // const ulItem2 = document.createElement('li');
+  // ulItem2.textContent = data[0];
+  // menuList.appendChild(ulItem2);
+
+
+  const menuImg = document.querySelector('.menu-button');
+  console.log(menuImg)
+
+  menuImg.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu-open');
+  })
+
+  return menuDiv
+}
+// console.log(menuItems);
+// console.log(menuMaker(menuItems));
+
+const newsfeedMenu = menuMaker(menuItems);
+menuHeader.appendChild(newsfeedMenu);

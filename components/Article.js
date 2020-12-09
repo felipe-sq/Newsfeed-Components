@@ -140,7 +140,7 @@ function articleMaker(data){
   article.appendChild(articleParagraph3);
   article.appendChild(expandButton);
 
-  article.classList.add('article', 'article-open');
+  article.classList.add('article');
   articleDate.classList.add('date');
   expandButton.classList.add('expandButton');
 
