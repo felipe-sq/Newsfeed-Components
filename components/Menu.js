@@ -31,3 +31,39 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+const menuHeader = document.querySelector('div.header');
+
+function menuMaker(data) {
+
+  const menuDiv = document.createElement('div');
+  const menuList = document.createElement('ul');
+
+  menuDiv.appendChild(menuList);
+
+  menuDiv.classList.add('menu');
+
+  data.forEach(e => {
+    const ulItem = document.createElement('li');
+    ulItem.textContent = e;
+    menuList.appendChild(ulItem);
+    return ulItem
+  });
+
+  const menuImg = document.querySelector('.menu-button');
+  console.log(menuImg)
+
+  menuImg.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu-open');
+  })
+
+  return menuDiv
+}
+// console.log(menuItems);
+// console.log(menuMaker(menuItems));
+// added above console log to check code as menu button was not 
+// functioning properly. Needed to delete an extra '-' in the 
+// menu-open less styling
+
+const newsfeedMenu = menuMaker(menuItems);
+menuHeader.appendChild(newsfeedMenu);
